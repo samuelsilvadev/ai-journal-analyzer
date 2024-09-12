@@ -4,8 +4,8 @@ const isDashboardRoute = createRouteMatcher(["/dashboard(.*)"]);
 
 const isNewUserRoute = createRouteMatcher(["/new-user(.*)"]);
 
-export default clerkMiddleware((auth, req) => {
-  if (isDashboardRoute(req) || isNewUserRoute(req)) {
+export default clerkMiddleware((auth, request) => {
+  if (isDashboardRoute(request) || isNewUserRoute(request)) {
     auth().protect();
   }
 });
